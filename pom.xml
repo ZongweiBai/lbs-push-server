@@ -9,8 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>PushServer-Client</module>
-        <module>PushServer-Service</module>
+        <module>api</module>
     </modules>
 
     <properties>
@@ -27,6 +26,8 @@
         <commons-configuration.version>1.6</commons-configuration.version>
         <spring-data-mongodb.version>1.7.0.RELEASE</spring-data-mongodb.version>
         <mongo-java-driver.version>3.0.2</mongo-java-driver.version>
+
+        <gexin-rp-sdk-base.version>4.0.0.7</gexin-rp-sdk-base.version>
     </properties>
 
     <dependencies>
