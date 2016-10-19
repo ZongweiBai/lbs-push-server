@@ -15,6 +15,7 @@ import java.util.Map;
 
 @Component
 public class ExceptionHandler implements HandlerExceptionResolver {
+
     private Log log = LogFactory.getLog("ERROR");
 
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler, Exception e) {

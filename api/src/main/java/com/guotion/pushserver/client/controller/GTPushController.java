@@ -11,6 +11,7 @@ import com.gexin.rp.sdk.template.TransmissionTemplate;
 import com.guotion.pushserver.service.bean.LocationBean;
 import com.guotion.pushserver.client.util.ResponseDataHandler;
 import com.guotion.pushserver.service.bean.Location;
+import com.guotion.pushserver.service.constant.AppConstant;
 import com.guotion.pushserver.service.entity.AliasAccount;
 import com.guotion.pushserver.service.entity.AppData;
 import com.guotion.pushserver.service.enums.DeviceType;
@@ -57,7 +58,7 @@ public class GTPushController {
             aliasAccount.setBindDevice(device);
 
             AliasAccount savedAliasAccount = this.aliasAccountService.bindAlias(aliasAccount, appId);
-            IGtPush push = new IGtPush("http://sdk.open.api.igexin.com/apiex.htm", savedAliasAccount.getAppData().getAppKey(), savedAliasAccount.getAppData().getMaster());
+            IGtPush push = new IGtPush(AppConstant.GT_PUSH_URL, savedAliasAccount.getAppData().getAppKey(), savedAliasAccount.getAppData().getMaster());
             push.connect();
 
             ResponseDataHandler.dealBoolean(true, null, response);
@@ -156,7 +157,7 @@ public class GTPushController {
     }
 
     protected void androidPushToPerson(AliasAccount aliasAccount, String content) throws IOException {
-        IGtPush push = new IGtPush("http://sdk.open.api.igexin.com/apiex.htm", aliasAccount.getAppData().getAppKey(), aliasAccount.getAppData().getMaster());
+        IGtPush push = new IGtPush(AppConstant.GT_PUSH_URL, aliasAccount.getAppData().getAppKey(), aliasAccount.getAppData().getMaster());
         push.connect();
         TransmissionTemplate template = new TransmissionTemplate();
         template.setTransmissionType(2);
@@ -181,7 +182,7 @@ public class GTPushController {
     }
 
     protected void iosPushToPerson(AliasAccount aliasAccount, String content) throws IOException {
-        IGtPush push = new IGtPush("http://sdk.open.api.igexin.com/apiex.htm", aliasAccount.getAppData().getAppKey(), aliasAccount.getAppData().getMaster());
+        IGtPush push = new IGtPush(AppConstant.GT_PUSH_URL, aliasAccount.getAppData().getAppKey(), aliasAccount.getAppData().getMaster());
         push.connect();
 
         TransmissionTemplate transmissionTemplate = new TransmissionTemplate();
@@ -212,7 +213,7 @@ public class GTPushController {
 
     protected List<LocationBean> androidPushToMultiPerson(List<AliasAccount> aliasAccounts, AppData appData, String content) throws IOException {
         System.setProperty("gexin.rp.sdk.pushlist.needDetails", "true");
-        IGtPush push = new IGtPush("http://sdk.open.api.igexin.com/apiex.htm", appData.getAppKey(), appData.getMaster());
+        IGtPush push = new IGtPush(AppConstant.GT_PUSH_URL, appData.getAppKey(), appData.getMaster());
         push.connect();
         TransmissionTemplate template = new TransmissionTemplate();
         template.setTransmissionType(2);
@@ -242,7 +243,7 @@ public class GTPushController {
     }
 
     protected List<LocationBean> iosPushToMultiPerson(List<AliasAccount> aliasAccounts, AppData appData, String content) throws IOException {
-        IGtPush push = new IGtPush("http://sdk.open.api.igexin.com/apiex.htm", appData.getAppKey(), appData.getMaster());
+        IGtPush push = new IGtPush(AppConstant.GT_PUSH_URL, appData.getAppKey(), appData.getMaster());
         push.connect();
 
         TransmissionTemplate transmissionTemplate = new TransmissionTemplate();
