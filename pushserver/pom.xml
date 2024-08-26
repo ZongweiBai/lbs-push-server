@@ -12,7 +12,7 @@
     <artifactId>pushserver</artifactId>
 
     <properties>
-        <springfox.version>2.9.2</springfox.version>
+        <springfox.version>2.10.0</springfox.version>
     </properties>
 
     <dependencies>
